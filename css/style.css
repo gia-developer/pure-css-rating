@@ -1,0 +1,116 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Manjari', sans-serif;
+	background-color: #e7ecef;
+	text-align: center;
+	padding: 30px;
+	min-height: 100vh;
+}
+
+footer {
+	position: absolute; 
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	background: #3b3b3b;
+	left: 0;
+}
+
+footer p {
+	color: white;
+	font-size: 13px;
+	text-align: center;
+}
+
+/* Rating */
+.rating {
+	background: white;
+	border-radius: 25px;
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 90%;
+	margin: 30px auto 0;
+}
+
+.rating input {
+	display: none;
+}
+
+.rating label {
+	font-size: 0;
+}
+
+.rating label.stars::before, .rating label.hearts::before {
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.rating label.stars::before {
+	background: url(icons/star-solid.svg) no-repeat center center;
+	background-size: 20px;
+}
+
+.rating label.hearts::before {
+	background: url(icons/heart-solid.svg) no-repeat center center;
+	background-size: 20px;
+}
+
+/* Hover effect */
+.rating.effect input:checked + label ~ label.stars::before, .rating.effect:hover input:hover + label ~ label.stars::before {
+	background: url(icons/star-regular.svg) no-repeat center center;
+	background-size: 20px;
+	opacity: .3;
+}
+
+.rating.effect:hover input + label ~ label.stars::before {
+	background: url(icons/star-solid.svg) no-repeat center center;
+	background-size: 20px;
+}
+
+.rating.effect input:checked + label ~ label.hearts::before, .rating.effect:hover input:hover + label ~ label.hearts::before {
+	background: url(icons/heart-regular.svg) no-repeat center center;
+	background-size: 20px;
+	opacity: .3;
+}
+
+.rating.effect:hover input + label ~ label.hearts::before {
+	background: url(icons/heart-solid.svg) no-repeat center center;
+	background-size: 20px;
+}
+
+/* TABLET */
+@media ( min-width: 768px ) {
+	body {
+		padding: 0;
+	}
+	
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: calc(100vh - 39px);
+	}
+	
+	.rating {
+		width: 35%;
+	}
+}
+
+/* PC */
+@media ( min-width: 1024px ) {
+	.rating {
+		width: 20%;
+	}
+}
